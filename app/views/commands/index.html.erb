@@ -1,0 +1,23 @@
+<h1>Commands</h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>Name</TD><TD>Model</TD><TD align="right">Action</TH>
+    </TR>
+	</THEAD>
+	 <% @commands.each do |command| %>
+    <TR class="list {cycle values="light,dark"}">
+        <TD><%= command.name %></TD>
+        <TD><%= Model.find(command.modelid).name %></a></TD>
+        <TD align="right">
+            <%= link_to "I", command %>
+            <%= link_to "E", edit_command_path(command) %>
+        <%= link_to "D", command_path(command), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+		</TD>
+    </TR>
+    <% end %>
+</TABLE>

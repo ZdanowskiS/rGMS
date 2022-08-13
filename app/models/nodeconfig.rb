@@ -1,0 +1,2 @@
+class Nodeconfig < ApplicationRecord
+end

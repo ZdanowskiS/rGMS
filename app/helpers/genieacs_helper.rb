@@ -1,0 +1,2 @@
+module GenieacsHelper
+end

@@ -1,0 +1,119 @@
+<h1>Node: <%= @node.name %></h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD style="width: 1%;">
+            Name:
+        </TD>
+        <TD style="width: 99%;">
+			<%= @node.name %>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR>
+        <TD>
+            <B>Customer:</B>
+        </TD>
+        <TD>
+			<%= @customer.lastname %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>GenieACS:</B>
+        </TD>
+        <TD>
+			<%= @genieac.name %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>Model:<B>
+        </TD>
+        <TD>
+			<%= @model.name %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>Serial:</B>
+        </TD>
+        <TD>
+			<%= @node.serial %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>Device ID:</B>
+        </TD>
+        <TD>
+			<%= @node.deviceid %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>Address:</B>
+        </TD>
+        <TD>
+			<%= @node.address %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2" >
+        <%= link_to "Edit", edit_node_path(@node) %>
+        <%= link_to "Destroy", model_path(@node), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+</TABLE>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD width="1%">
+            Config
+        </TD>
+        <TD colspan="2" align="right">
+
+<a href="/nodeconfigs/new?nodeid=<%= @node.id %>">New config</a>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR class="head">
+        <TD>
+            <B>Name:</B>
+        </TD>
+        <TD>
+			<B>Value:</B>
+        </TD>
+        <TD align="right">
+			<B>Action:</B>
+        </TD>
+    </TR>
+        <% @nodeconfigs.each do |nodeconfig| %>
+    <TR>
+        <TD>
+             <%= nodeconfig.name %>
+        </TD>
+        <TD>
+            <%= nodeconfig.val %><BR>
+
+        </TD>
+        <TD align="right">
+            <%= link_to "D", nodeconfig_path(nodeconfig), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+        <% end %>
+    <TR>
+        <TD colspan="3" class="foot">
+
+ 
+        </TD>
+    </TR>
+</TABLE>

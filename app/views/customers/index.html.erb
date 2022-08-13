@@ -1,0 +1,22 @@
+<h1>Customers</h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>Name</TD><TD align="right">Action</TD>
+    </TR>
+	</THEAD>
+	<% @customers.each do |customer| %>
+    <TR>
+        <TD> <%= link_to customer.lastname, customer %></TD>
+        <TD align="right">
+            <%= link_to "I", customer %>
+            <%= link_to "E", edit_customer_path(customer) %>
+            <%= link_to "D", customer_path(customer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+		</TD>
+    </TR>
+	<% end %>
+</TABLE>

@@ -1,0 +1,33 @@
+<%= form_with model: @command do |form| %>
+<TABLE>
+    <THEAD>
+        <TD>
+           <%= form.label :name %><br>
+        </TD>
+        <TD>
+			 <%= form.text_field :name %>
+        </TD>
+    </THEAD>
+    <TR>
+        <TD>
+            <%= form.label :modelid %>
+        </TD>
+        <TD>
+            <%= form.select :modelid, @models.map { |t| [t.name, t.id]},:selected => @modelid %><br>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :description %>
+        </TD>
+        <TD>
+            <%= form.text_field :description %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+            <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>

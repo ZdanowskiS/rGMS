@@ -1,0 +1,67 @@
+<%= form_with model: @node do |form| %>
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>
+             <%= form.label :name %>
+        </TD>
+        <TD>
+			<%= form.text_field :name %>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR>
+        <TD>
+            <%= form.label :Customer %>
+        </TD>
+        <TD>
+                <%= form.select :customer_id, @customers.map { |t| [t.name, t.id]}%><br>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :GenieACS %>
+        </TD>
+        <TD>
+                <%= form.select :genieacs_id, @genieacs.map { |t| [t.name, t.id]}%><br>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :Model %>
+        </TD>
+        <TD>
+                <%= form.select :model_id, @models.map { |t| [t.name, t.id]}%><br>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :Serial %>
+        </TD>
+        <TD>
+			<%= form.text_field :Serial %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :Devid %>
+        </TD>
+        <TD>
+			<%= form.text_field :deviceid %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+           <%= form.label :Address %>
+        </TD>
+        <TD>
+			<%= form.text_field :address %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+             <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>

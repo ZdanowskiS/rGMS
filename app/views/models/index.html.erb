@@ -1,0 +1,24 @@
+<h1>Models</h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>Name</TD><TD align="right">Action</TH>
+    </TR>
+	</THEAD>
+  <% @models.each do |model| %>
+    <tr>
+        <TD width="100%">
+      <%= link_to model.name, model %>
+        </TD>
+        <TD width="1%">
+            <%= link_to "I", model %>
+            <%= link_to "E", edit_model_path(model) %>
+        <%= link_to "D", model_path(model), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </tr>
+  <% end %>
+</TABLE>

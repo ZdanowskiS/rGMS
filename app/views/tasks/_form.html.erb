@@ -1,0 +1,58 @@
+<%= form_with model: @task do |form| %>
+<%= form.hidden_field :command_id, :value =>@commandid %>
+<TABLE>
+    <THEAD>
+        <TD>
+           <%= form.label :name %><br>
+        </TD>
+        <TD>
+			 <%= form.text_field :name %>
+        </TD>
+    </THEAD>
+    <TR>
+        <TD>
+            <%= form.label :default %>
+        </TD>
+        <TD>
+            <%= form.text_field :defval %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :description %>
+        </TD>
+        <TD>
+            <%= form.text_field :description %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :dataName %>
+        </TD>
+        <TD>
+            <%= form.select :dataName, DATANAMES.map { |v ,key| [key, v]} %><br>
+        </TD>
+    </TR>
+   <TR>
+        <TD>
+            <%= form.label :dataType %>
+        </TD>
+        <TD>
+            <%= form.select :dataType, DATATYPES.map { |v ,key| [key, v]} %><br>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :ObjectName %>
+        </TD>
+        <TD>
+            <%= form.text_field :objectName %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+            <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>

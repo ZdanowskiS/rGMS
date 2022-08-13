@@ -1,0 +1,78 @@
+<h1>Model</h1>
+<TABLE border=1>
+	<THEAD>
+    <TR>
+        <TD width="1%">
+            Name:
+        </TD>
+		<TD>
+			<%= @model.name %>
+		</TD>
+    </TR>
+	</THEAD>
+    <TR>
+        <TD>
+            <B>Description:</B>
+        </TD>
+        <TD>
+            <%= @model.description %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2" >
+        <%= link_to "Edit", edit_model_path(@model) %>
+        <%= link_to "Destroy", model_path(@model), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+</TABLE>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD width="1%">
+            Actions
+        </TD>
+        <TD colspan="2" align="right">
+
+<a href="/commands/new?modelid=<%= @model.id %>">New Command</a>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR class="head">
+        <TD>
+            <B>Name:</B>
+        </TD>
+        <TD>
+			<B>Description:</B>
+        </TD>
+        <TD align="right">
+			<B>Action:</B>
+        </TD>
+    </TR>
+        <% @commands.each do |command| %>
+    <TR>
+        <TD>
+             <%= command.name %>
+        </TD>
+        <TD>
+            <%= command.description %>
+        </TD>
+        <TD align="right">
+            <%= link_to "I", command %>
+            <%= link_to "E", edit_command_path(command) %>
+            <%= link_to "D", command_path(command), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+        <% end %>
+    <TR>
+        <TD colspan="3" class="foot">
+
+        </TD>
+    </TR>
+</TABLE>

@@ -1,0 +1,99 @@
+<h1>Customer: <%= @customer.name %></h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD width="1%" scope="col">
+            <B>Name:</B>
+        </TD>
+        <TD width="99%">
+			<%= @customer.name %> <%= @customer.lastname %>
+            External ID: <%= @customer.extid %>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR>
+        <TD scope="col">
+            <B>Address:</B>
+        </TD>
+        <TD scope="col">
+           <%= @customer.address %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            SSN:
+        </TD>
+        <TD>
+			<%= @customer.ssn %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            TEN:
+        </TD>
+        <TD>
+			<%= @customer.ten %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            Note:
+        </TD>
+        <TD>
+            <%= @customer.note %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+        <%= link_to "Edit", edit_customer_path(@customer) %>
+        <%= link_to "Destroy", customer_path(@customer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+</TABLE>
+<BR>
+<TABLE width="100%">
+<THEAD>
+    <TR>
+        <TH align="left" class="head">
+            Nodes:
+        </TH>
+        <TH colspan="3" class="head" align="right">
+			<%= link_to "New Node", new_node_path %>
+        </TH>
+    </TR>
+</THEAD>
+	<TR class="head">
+		<TD>Name/<BR>Address:</TD>
+		<TD>Model name:</TD>
+		<TD>Serial/<BR>
+			Device id:</TD>
+		<TD align="right">Actons:</TD>
+	</TR>
+        <% @nodes.each do |node| %>
+    <TR>
+        <TD >
+           <B><%= link_to node.name, node %></B><BR>
+         <%= node.address %>
+        </TD>
+        <TD>
+			 <%=Model.find(node.model_id).name %>
+        </TD>
+        <TD>
+			 <%= node.serial %><BR>
+			 <%= node.deviceid %> 
+        </TD>
+		<TD align="right">
+            <%= link_to "I", node %>
+            <%= link_to "E", edit_node_path(node) %>
+        <%= link_to "D", node_path(node), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+		</TD>
+    </TR>
+	<% end %>
+</TABLE>

@@ -1,0 +1,27 @@
+<%= form_with model: @nodeconfig do |form| %>
+<%= form.hidden_field :node_id, :value =>@nodeid %>
+<TABLE>
+    <THEAD>
+        <TD>
+           <%= form.label :name %><br>
+        </TD>
+        <TD>
+			 <%= form.text_field :name %>
+        </TD>
+    </THEAD>
+    <TR>
+        <TD>
+            <%= form.label :value %>
+        </TD>
+        <TD>
+            <%= form.text_field :val %>
+        </TD>
+    </TR>
+
+    <TR class="foot">
+        <TD colspan="2">
+            <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>

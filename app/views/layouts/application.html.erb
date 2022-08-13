@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GMS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <BODY bgcolor="#DDDDDD">
+<div class="menu">
+<!--
+<div>---</div>
+<div><a href="?m=useradd">New User</a></div>
+<div><a href="?m=userlist">User List</a></div>
+-->
+<div>---</div>
+<div><%= link_to "New Genieacs", new_genieac_path %></div>
+<div><%= link_to "Genieacs List", genieacs_path %></div>
+<div>---</div>
+<div><%= link_to "New Model", new_model_path %></div>
+<div><%= link_to "Model List", models_path %></div>
+<div><%= link_to "New Command", new_command_path %></div>
+<div><%= link_to "Commands List", commands_path %></div>
+<div>---</div>
+<div><%= link_to "New Customer", new_customer_path %></div>
+<div><%= link_to "Customer List", customers_path %></div>
+<div>---</div>
+<div><%= link_to "Node List", nodes_path %></div>
+<!--
+<div>---</div>
+<div><a href="?m=logout">Logout</a></div>
+-->
+</div>
+<div class="content">
+    <%= yield %>
+    </div>
+  </body>
+</html>

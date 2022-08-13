@@ -1,0 +1,88 @@
+<h1>Command: <%= @command.name %></h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD style="width: 1%;">
+            Name:
+        </TD>
+        <TD style="width: 99%;">
+			<%= @command.name %>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR>
+        <TD>
+            <B>Model:</B>
+        </TD>
+        <TD>
+			<%= Model.find(@command.modelid).name %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <B>Description:</B>
+        </TD>
+        <TD>
+			<%= @command.description %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2" >
+        <%= link_to "Edit", edit_command_path(@command) %>
+        <%= link_to "Destroy", command_path(@command), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+</TABLE>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD width="1%">
+            Tasks
+        </TD>
+        <TD colspan="2" align="right">
+
+<a href="/tasks/new?commandid=<%= @command.id %>">New task</a>
+        </TD>
+    </TR>
+	</THEAD>
+    <TR class="head">
+        <TD>
+            <B>Name:</B>
+        </TD>
+        <TD>
+			<B>Description:</B>
+        </TD>
+        <TD align="right">
+			<B>Action:</B>
+        </TD>
+    </TR>
+        <% @tasks.each do |task| %>
+    <TR>
+        <TD>
+             <%= task.name %>
+        </TD>
+        <TD>
+            <%= task.description %><BR>
+            <%= task.objectName %>
+        </TD>
+        <TD align="right">
+            <%= link_to "E", edit_task_path(task) %>
+            <%= link_to "D", command_path(task), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        </TD>
+    </TR>
+        <% end %>
+    <TR>
+        <TD colspan="3" class="foot">
+
+ 
+        </TD>
+    </TR>
+</TABLE>

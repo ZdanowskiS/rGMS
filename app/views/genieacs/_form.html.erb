@@ -1,0 +1,35 @@
+<%= form_with model: @genieac do |form| %>
+<TABLE>
+<THEAD>
+    <TR>
+        <TD width="1%">
+           <%= form.label :name %>
+        </TD>
+        <TD>
+			<%= form.text_field :name %>
+        </TD>
+    </TR>
+</THEAD>
+    <TR>
+        <TD width="1%">
+          <%= form.label :IpAddr %>
+        </TD>
+        <TD>
+			<%= form.text_field :url %>
+        </TD>
+    </TR>
+    <TR>
+        <TD width="1%">
+           <%= form.label :Password %>
+        </TD>
+        <TD>
+			<%= form.password_field :passwd %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+            <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>

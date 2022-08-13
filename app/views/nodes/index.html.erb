@@ -1,0 +1,24 @@
+<h1>Nodes</h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>Name</TD><TD>Serial</TD><TD>Device ID</TD><TD align="right">Action</TH>
+    </TR>
+	</THEAD>
+  <% @nodes.each do |node| %>
+    <TR>
+        <TD><%= link_to node.name, node %></TD>
+        <TD><%= node.serial %></TD>
+        <TD><%= node.deviceid %></TD>
+        <TD align="right">
+            <%= link_to "I", node %>
+            <%= link_to "E", edit_node_path(node) %>
+        <%= link_to "D", node_path(node), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+		</TD>
+    </TR>
+  <% end %>
+</TABLE>

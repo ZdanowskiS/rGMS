@@ -1,0 +1,24 @@
+<h1>Genieacs</h1>
+
+<TABLE>
+	<THEAD>
+    <TR>
+        <TD>Name</TD><TD>IP</TD><TD align="right">Action</TH>
+    </TR>
+	</THEAD>
+	<% @genieacs.each do |genieac| %>
+    <TR >
+        <TD><%= link_to genieac.name, genieac %></TD>
+        <TD><%= genieac.url %></TD>
+        <TD align="right">
+            <%= link_to "I", genieac %>
+            <%= link_to "E", edit_node_path(genieac) %>
+        <%= link_to "D", node_path(genieac), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+		</TD>
+    </TR>
+<% end %>
+
+</TABLE>

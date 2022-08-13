@@ -1,0 +1,67 @@
+<%= form_with model: @customer do |form| %>
+<TABLE>
+    <THEAD>
+        <TD>
+           <%= form.label :lastname %><br>
+        </TD>
+        <TD>
+			 <%= form.text_field :lastname %>
+    <%= form.label :extid %>
+    <%= form.text_field :extid %>
+        </TD>
+    </THEAD>
+    <TR>
+        <TD>
+            <%= form.label :name %>
+        </TD>
+        <TD>
+            <%= form.text_field :name %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :address %>
+        </TD>
+        <TD>
+            <%= form.text_field :address %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :phone %>
+        </TD>
+        <TD>
+            <%= form.text_field :phone %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :TEN %>
+        </TD>
+        <TD>
+            <%= form.text_field :ten %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :SSN %>
+        </TD>
+        <TD>
+            <%= form.text_field :ssn %>
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <%= form.label :note %>
+        </TD>
+        <TD>
+            <%= form.text_area :note %>
+        </TD>
+    </TR>
+    <TR class="foot">
+        <TD colspan="2">
+            <%= form.submit %>
+        </TD>
+    </TR>
+</TABLE>
+<% end %>
